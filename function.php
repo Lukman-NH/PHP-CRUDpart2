@@ -61,7 +61,7 @@ function tambah($data){
 			 judul = '$judul',
 			 series = '$series',
 			 kdgenre = '$kdgenre',
-			 tahun = 'tahun',
+			 tahun = '$tahun',
 			 negara = '$negara',
 			 director = '$director',
 			 rating = '$rating'
@@ -72,4 +72,14 @@ function tambah($data){
 	return mysqli_affected_rows($db);
 }
 
+function cari($keyword){
+	$query ="
+			 SELECT * FROM film WHERE
+			 judul LIKE '%$keyword%' OR
+			 kdmov LIKE '%$keyword%' OR
+			 tahun LIKE '%$keyword%' OR
+			 director LIKE '%$keyword%'
+			";
+	return query($query);
+}
  ?>
